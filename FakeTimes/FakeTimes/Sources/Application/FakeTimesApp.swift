@@ -4,7 +4,9 @@ import SwiftUI
 struct FakeTimesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+            }
         }
     }
 }
