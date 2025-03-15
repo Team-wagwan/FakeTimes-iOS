@@ -44,8 +44,8 @@ extension Color {
     static let statusInfo: Color = .init(hex: "#008BFF")
     
     // Static
-    static let static99: Color = .init(hex: "#FFFFFF")
-    static let static95: Color = .init(hex: "#000000")
+    static let static100: Color = .init(hex: "#FFFFFF")
+    static let static00: Color = .init(hex: "#000000")
 }
 
 extension Color {
