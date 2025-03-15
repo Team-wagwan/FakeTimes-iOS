@@ -13,11 +13,11 @@ struct MainView: View {
         ZStack {
             switch selectedTab {
             case .news:
-                Text("News")
+                NewsView()
             case .generate:
-                Text("Generate")
+                GenerateView()
             case .profile:
-                Text("Profile")
+                ProfileView()
             }
             CustomTabView(selectedTab: $selectedTab)
         }

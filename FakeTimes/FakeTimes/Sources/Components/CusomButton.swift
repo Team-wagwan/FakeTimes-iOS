@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CusomButton: View {
+struct CustomButton: View {
     let title: String
     var destination: AnyView?
     var action = {}
@@ -44,7 +44,7 @@ struct CusomButton: View {
 
 #Preview {
     NavigationView {
-        CusomButton(title: "Text") {
+        CustomButton(title: "Text") {
             print("yes")
         }
     }
