@@ -31,16 +31,39 @@ struct InputField: View {
                 .foregroundStyle(Color.backgroundNormal)
                 .shadow(color: .static00.opacity(0.02), radius: 10, x: 0, y: 3)
                 .overlay {
-                    TextField(
-                        "",
-                        text: $text,
-                        prompt: Text(placeholder)
-                            .font(.bodyMedium)
-                            .foregroundStyle(Color.labelAssistive)
-                    )
-                    .padding(.horizontal, 20)
-                    .tint(.primaryNormal)
-                        
+                    switch style {
+                    case .default:
+                        TextField(
+                            "",
+                            text: $text,
+                            prompt: Text(placeholder)
+                                .font(.bodyMedium)
+                                .foregroundStyle(Color.labelAssistive)
+                        )
+                        .padding(.horizontal, 20)
+                        .tint(.primaryNormal)
+                    case .secureField:
+                        SecureField(
+                            "",
+                            text: $text,
+                            prompt: Text(placeholder)
+                                .font(.bodyMedium)
+                                .foregroundStyle(Color.labelAssistive)
+                        )
+                        .padding(.horizontal, 20)
+                        .tint(.primaryNormal)
+                    case .numberPad:
+                        TextField(
+                            "",
+                            text: $text,
+                            prompt: Text(placeholder)
+                                .font(.bodyMedium)
+                                .foregroundStyle(Color.labelAssistive)
+                        )
+                        .padding(.horizontal, 20)
+                        .tint(.primaryNormal)
+                        .keyboardType(.numberPad)
+                    }
                 }
         }
     }
