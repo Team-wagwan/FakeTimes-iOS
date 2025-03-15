@@ -2,10 +2,20 @@ import SwiftUI
 
 struct NewsView: View {
     var body: some View {
-        Text("아카이브")
+        VStack {
+            
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Text("생성한 뉴스")
+                    .font(.title2Bold)
+            }
+        }
     }
 }
 
 #Preview {
-    NewsView()
+    NavigationView {
+        NewsView()
+    }
 }

@@ -42,6 +42,7 @@ struct InputField: View {
                         )
                         .padding(.horizontal, 20)
                         .tint(.primaryNormal)
+                        .textInputAutocapitalization(.never)
                     case .secureField:
                         SecureField(
                             "",
@@ -52,6 +53,7 @@ struct InputField: View {
                         )
                         .padding(.horizontal, 20)
                         .tint(.primaryNormal)
+                        .textInputAutocapitalization(.never)
                     case .numberPad:
                         TextField(
                             "",
@@ -63,6 +65,7 @@ struct InputField: View {
                         .padding(.horizontal, 20)
                         .tint(.primaryNormal)
                         .keyboardType(.numberPad)
+                        .textInputAutocapitalization(.never)
                     }
                 }
         }

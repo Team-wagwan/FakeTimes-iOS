@@ -5,7 +5,14 @@ struct FakeTimesApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                MainView()
+                Group {
+                    if KeyChain.read() == nil {
+                        SignInView()
+                    }
+                    else {
+                        MainView()
+                    }
+                }
             }
         }
     }
