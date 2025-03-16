@@ -8,19 +8,29 @@ enum Tab {
 
 struct MainView: View {
     @State var selectedTab: Tab = .news
+    @StateObject var newsViewModel = NewsViewModel.shared
+    @StateObject var profileViewModel = ProfileViewModel.shared
     
     var body: some View {
-        ZStack {
-            switch selectedTab {
-            case .news:
-                NewsView()
-            case .generate:
-                GenerateView()
-            case .profile:
-                ProfileView()
+        Color.backgroundAlternative
+            .ignoresSafeArea()
+            .overlay {
+                ZStack {
+                    switch selectedTab {
+                    case .news:
+                        NewsView()
+                    case .generate:
+                        GenerateView()
+                    case .profile:
+                        ProfileView()
+                    }
+                    CustomTabView(selectedTab: $selectedTab)
+                }
+                .onAppear {
+                    newsViewModel.getNews()
+                    profileViewModel.getProfile()
+                }
             }
-            CustomTabView(selectedTab: $selectedTab)
-        }
     }
 }
 

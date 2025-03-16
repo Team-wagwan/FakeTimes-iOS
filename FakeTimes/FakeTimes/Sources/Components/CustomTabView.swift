@@ -4,8 +4,10 @@ struct CustomTabView: View {
     @Binding var selectedTab: Tab
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Spacer()
+            
+            Divider()
             
             HStack {
                 Spacer()

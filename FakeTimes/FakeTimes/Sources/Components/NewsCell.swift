@@ -6,34 +6,40 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct NewsCell: View {
     let imgUrl: String
     let title: String
-    let content: String
+    let author: String
     let link: String
     
     var body: some View {
-        NavigationLink(destination: Text("상세화면")) {
+        NavigationLink(destination: NewsDetailView(url: link)) {
             VStack(spacing: 0) {
                 Rectangle()
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color.backgroundAlternative)
                     .frame(height: 85)
                     .overlay {
                         HStack(spacing: 25) {
-                            KFImage(URL(string: imgUrl))
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 60, height: 60)
-                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                            if imgUrl != nil, let url = URL(string: imgUrl) {
+                                AsyncImage(url: url) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 60, height: 60)
+                                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                                } placeholder: {
+                                    ProgressView()
+                                        .frame(width: 60, height: 60)
+                                }
+                            }
                             
                             VStack(alignment: .leading, spacing: 10) {
                                 Spacer()
                                 
                                 Text(title)
                                     .font(.bodyBold)
-                                Text(content)
+                                Text(author)
                                     .font(.captionRegular)
                                     .lineLimit(1)
                             }
@@ -52,6 +58,6 @@ struct NewsCell: View {
 
 #Preview {
     NavigationView {
-        NewsCell(imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPRe05b-7ElyXcgDeI3kOzX0S7z-ySzDDEjQ&s", title: "제목제목제목", content: "내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용", link: "www.youtube.com")
+        NewsCell(imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPRe05b-7ElyXcgDeI3kOzX0S7z-ySzDDEjQ&s", title: "제목제목제목", author: "", link: "www.youtube.com")
     }
 }

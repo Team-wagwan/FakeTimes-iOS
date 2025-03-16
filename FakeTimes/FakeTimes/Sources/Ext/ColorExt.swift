@@ -8,9 +8,9 @@ extension Color {
     static let primaryAssistive: Color = .init(hex: "#97C4E9")
     
     // Secondary
-    static let secondaryNormal: Color = .init(hex: "#FFFFFF")
-    static let secondaryAlternative: Color = .init(hex: "#FFFFFF")
-    static let secondaryAssistive: Color = .init(hex: "#FFFFFF")
+    static let secondaryNormal: Color = .init(hex: "#BFC1C1")
+    static let secondaryAlternative: Color = .init(hex: "#F3F3F3")
+    static let secondaryAssistive: Color = .init(hex: "#ECF0F1")
     
     // Label
     static let labelNormal: Color = .init(hex: "#0C0C0D")

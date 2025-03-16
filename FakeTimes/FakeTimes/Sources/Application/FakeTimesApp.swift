@@ -8,8 +8,7 @@ struct FakeTimesApp: App {
                 Group {
                     if KeyChain.read() == nil {
                         SignInView()
-                    }
-                    else {
+                    } else {
                         MainView()
                     }
                 }
